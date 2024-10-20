@@ -6,7 +6,6 @@ const Gallery = React.lazy(() => import('./components/Gallery'));
 
 function App() {
   const { theme } = useGlobalContext();
-  console.log(theme);
   return (
     <>
       <div
