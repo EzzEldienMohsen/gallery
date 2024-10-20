@@ -1,5 +1,8 @@
 import { useGlobalContext } from './context/GlobalContext';
-import { Gallery, Header } from './components';
+import { Header } from './components';
+import React from 'react';
+//  LAzy Loading the Gallery
+const Gallery = React.lazy(() => import('./components/Gallery'));
 
 function App() {
   const { theme } = useGlobalContext();
@@ -12,7 +15,15 @@ function App() {
         dir="rtl"
       >
         <Header />
-        <Gallery />
+        <React.Suspense
+          fallback={
+            <div className="w-full flex justify-center items-center p-2">
+              <span className="loading loading-spinner loading-lg text-primary"></span>
+            </div>
+          }
+        >
+          <Gallery />
+        </React.Suspense>
       </div>
     </>
   );

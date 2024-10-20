@@ -24,9 +24,13 @@ const Modal: React.FC<ModalProps> = ({
           <div className="carousel w-full">
             <div className="carousel-item relative w-full">
               <img
-                src={data[currentIndex]?.img || fallbackImage}
+                src={data[currentIndex]?.img}
                 alt="Expanded view"
                 className="w-full"
+                onError={(e) => {
+                  e.currentTarget.src = fallbackImage;
+                  e.currentTarget.classList.add('h-full', 'object-cover');
+                }}
               />
               <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                 <button
