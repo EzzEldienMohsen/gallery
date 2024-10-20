@@ -19,14 +19,14 @@ const Modal: React.FC<ModalProps> = ({
 }) => {
   return (
     <dialog id={modalId} className="modal">
-      <div className="modal-box w-3/5 max-w-5xl relative">
+      <div className="modal-box w-9/12  md:aspect-auto  md:w-3/5 relative">
         {data && (
           <div className="carousel w-full">
             <div className="carousel-item relative w-full">
               <img
                 src={data[currentIndex]?.img}
                 alt="Expanded view"
-                className="w-full"
+                className="w-full aspect-[4/2]"
                 onError={(e) => {
                   e.currentTarget.src = fallbackImage;
                   e.currentTarget.classList.add('h-full', 'object-cover');

@@ -72,7 +72,7 @@ const Gallery: React.FC = () => {
                 e.currentTarget.src = fallbackImage;
                 e.currentTarget.classList.add('h-full', 'object-cover');
               }}
-              className="w-full"
+              className="w-full aspect-[4/3]"
               data-aos="fade-down"
             />
 
